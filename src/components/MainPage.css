@@ -1,0 +1,217 @@
+html{
+    background-color: #222222;
+}
+
+body {
+    overflow: hidden;
+}
+
+
+.main-container {
+    margin: 0 auto;
+    padding: 2% 7% 7%;
+    background-color: #222222;
+}
+
+.arrow-text {
+    margin-bottom: 3%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.arrow-back {
+    font-size: 24px;
+    margin-right: 40%;
+    color: #969696;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.archive-text {
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+}
+
+.buttons {
+    align-items: center;
+    display: flex;
+    border: 1px solid #323232;
+    background-color: #323232;
+    border-radius: 20px;
+}
+
+
+.ticket-button {
+    font-size: 13px;
+    font-weight: 600;
+    background-color: inherit;
+    color: #a6a6a6;
+    border: inherit;
+    margin-left: 30px;
+}
+
+
+.ticket-button.active {
+    background-color: #222222;
+    color: #55a12d;
+    border: 1px solid #414141;
+    border-radius: 40px;
+    padding: 7px 20%;
+    margin-left: 0;
+}
+
+.content {
+    padding: 5%;
+    margin-top: 15px;
+    border: 1px solid #323232;
+    border-radius: 7px;
+    background-color: #323232;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3); /* Горизонтальне зміщення, вертикальне зміщення, розмір розмивання, колір */
+}
+
+
+.image-container {
+    margin-bottom: 20px;
+}
+
+.lviv-info {
+    color: white;
+    display: flex;
+    align-items: center;
+
+
+}
+.lviv-info__ticket{
+    color: white;
+    margin-top: 5%;
+}
+.lviv-info__ticket__num{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 2%;
+
+}
+
+.lviv-info__ticket__tram{
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.lviv-info__ticket p{
+    margin-top: 0;
+}
+.lviv-info.help-text {
+    font-size: 14px;
+    font-weight: 300;
+    margin-left: 4%;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.lviv-info.help-text p {
+    margin: 0;
+    color: #f6f6f6;
+    margin-bottom: 2%;
+
+}
+
+.text-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.text-image img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.big-image-container {
+    margin-bottom: 20px;
+}
+
+.big-image-text {
+    margin-top: 10px;
+}
+
+.info-section {
+    color: white;
+    display: flex;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+
+.info-header {
+    color: #969696;
+
+}
+
+.info-header{
+    margin-bottom: 3%;
+}
+
+.info-date{
+    margin: 0;
+}
+.info {
+    flex: 1;
+    text-align: center;
+}
+
+.ticket {
+    text-align: center;
+    color: #5f953d;
+}
+.ticket_header{
+    font-size: 12px;
+    margin-bottom: 3%;
+}
+
+.ticket_timer{
+    font-size: 20px;
+    font-weight: 600;
+    color: #64a74e;
+    margin: 0;
+}
+
+.footer {
+    margin-top: 160px;
+    text-align: center;
+}
+
+.qr-button {
+    background-color: #4fa423;
+    color: black;
+    border: none;
+    width: 100%;
+    padding: 3%;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3); /* Горизонтальне зміщення, вертикальне зміщення, розмір розмивання, колір */
+
+
+}
+
+
+.small-pic{
+    width: 65px;
+    height: 65px;
+}
+
+
+.big-pic{
+    margin-bottom: 4%;
+    width: 147px;
+    height: 147px;
+}
