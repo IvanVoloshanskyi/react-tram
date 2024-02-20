@@ -1,53 +1,41 @@
 import React, { useState, useEffect } from 'react';
 
 const Timer = () => {
+    const [purchaseTime, setPurchaseTime] = useState(Date.now());
     const [timer, setTimer] = useState('59:59');
 
     useEffect(() => {
-        const countdownTimer = () => {
-            setTimer(prevTimer => {
-                let [minutes, seconds] = prevTimer.split(':').map(Number);
+        const calculateTimeDifference = () => {
+            const currentTime = Date.now();
+            const timeDifferenceInSeconds = Math.floor((currentTime - purchaseTime) / 1000);
 
-                seconds--;
-                if (seconds < 0) {
-                    minutes--;
-                    seconds = 59;
-                }
-
-                if (minutes < 0) {
-                    clearInterval(timerInterval);
-                    // Тут можна додати дій, що виконуються після закінчення таймера
-                }
-
-                return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            });
+            if (timeDifferenceInSeconds >= 0) {
+                const remainingTimeInSeconds = 3599 - timeDifferenceInSeconds;
+                const minutes = Math.floor(remainingTimeInSeconds / 60);
+                const seconds = remainingTimeInSeconds % 60;
+                setTimer(`${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`);
+            }
         };
 
-        const timerInterval = setInterval(countdownTimer, 1000);
+        const timerInterval = setInterval(calculateTimeDifference, 1000);
 
-        return () => clearInterval(timerInterval); // Очищаємо інтервал при виході з компонента
-    }, []); // Запускаємо тільки один раз після монтування
+        return () => clearInterval(timerInterval);
+    }, [purchaseTime]);
 
     const handleChangeTime = () => {
-        setTimer(prevTimer => {
-            let [minutes, seconds] = prevTimer.split(':').map(Number);
-            const newMinutes = minutes - 3;
-
-            if (newMinutes < 0) {
-                return '00:00'; // Заборонити від'ємний час
-            }
-
-            return `${newMinutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        });
+        const currentTime = Date.now();
+        const timeDifferenceInSeconds = Math.floor((currentTime - purchaseTime) / 1000);
+        const remainingTimeInSeconds = 3599 - timeDifferenceInSeconds;
+        const minutes = Math.floor(remainingTimeInSeconds / 60);
+        const seconds = remainingTimeInSeconds % 60;
+        setTimer(`${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`);
+        setPurchaseTime(currentTime - timeDifferenceInSeconds * 1000);
     }
 
     return (
         <div className="ticket">
             <p className="ticket_header">Квиток разового використання</p>
-            <p
-                className="ticket_timer"
-                onClick={handleChangeTime}
-            >
+            <p className="ticket_timer" onClick={handleChangeTime}>
                 {timer}
             </p>
         </div>
